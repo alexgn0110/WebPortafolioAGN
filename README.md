@@ -5,6 +5,6 @@
 
 - 📫 How to reach me **alex_guno0110@hotmail.com**
 
-<h3 align="left">Connect with me:</h3>
+
 <p align="left">
 </p>
