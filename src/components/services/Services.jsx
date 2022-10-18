@@ -1,14 +1,13 @@
 import React from "react";
 import "./services.css";
-import {BiCheck} from 'react-icons/bi'
+import { BiCheck } from "react-icons/bi";
 
 const Services = () => {
   return (
-    <section id='services'>
+    <section id="services">
       <h5> What I offer </h5>
       <h2> Services </h2>
 
-      
       <div className="container services__container">
         <article className="service">
           <div className="service__head">
@@ -18,90 +17,86 @@ const Services = () => {
           <ul className="service__list">
             <li>
               <BiCheck className="service__list-icon" />
-              <p>Lorem, ipsum dolor sit amet consectetur elit.</p>
+              <p>Optimizing the user experience.</p>
             </li>
 
             <li>
               <BiCheck className="service__list-icon" />
-              <p>Lorem, ipsum dolor sit amet consectetur elit.</p>
+              <p>Implementing design on mobile websites.</p>
             </li>
 
             <li>
               <BiCheck className="service__list-icon" />
-              <p>Lorem, ipsum dolor sit amet consectetur elit.</p>
+              <p>
+                Actively participation in designing and reviewing core functionality
+              </p>
             </li>
 
-            <li>
-              <BiCheck className="service__list-icon" />
-              <p>Lorem, ipsum dolor sit amet consectetur elit.</p>
-            </li>
-            </ul>
-          </article>
-         {/*================= End of UI/UX===============*/}
+           
+          </ul>
+        </article>
+        {/*================= End of UI/UX===============*/}
 
-
-         <article className="service">
-         <div className="service__head">
+        <article className="service">
+          <div className="service__head">
             <h3>Web Development</h3>
           </div>
-
 
           <ul className="service__list">
             <li>
               <BiCheck className="service__list-icon" />
-              <p>Lorem, ipsum dolor sit amet consectetur elit.</p>
+              <p>Using HTML, JavaScript and CSS to bring concepts to life.</p>
             </li>
 
             <li>
               <BiCheck className="service__list-icon" />
-              <p>Lorem, ipsum dolor sit amet consectetur elit.</p>
+              <p>
+                Creating tools that improve site interaction regardless of the
+                browser.
+              </p>
             </li>
 
             <li>
               <BiCheck className="service__list-icon" />
-              <p>Lorem, ipsum dolor sit amet consectetur elit.</p>
+              <p>Managing software workflow.</p>
             </li>
 
             <li>
               <BiCheck className="service__list-icon" />
-              <p>Lorem, ipsum dolor sit amet consectetur elit.</p>
+              <p>Optimize application for maximum speed and scalability</p>
             </li>
-            </ul>
-            </article>
-         {/*================= Content Creation ===============*/}
-          
-         <article className="service">
+          </ul>
+        </article>
+        {/*================= Content Creation ===============*/}
+
+        <article className="service">
           <div className="service__head">
             <h3>Content Creation</h3>
           </div>
           <ul className="service__list">
             <li>
               <BiCheck className="service__list-icon" />
-              <p>Lorem, ipsum dolor sit amet consectetur elit.</p>
+              <p>Following SEO best practices.</p>
             </li>
 
             <li>
               <BiCheck className="service__list-icon" />
-              <p>Lorem, ipsum dolor sit amet consectetur elit.</p>
+              <p>Fixing bugs and testing for usability.</p>
             </li>
 
             <li>
               <BiCheck className="service__list-icon" />
-              <p>Lorem, ipsum dolor sit amet consectetur elit.</p>
+              <p>Collaborate with other team members </p>
             </li>
 
-            <li>
-              <BiCheck className="service__list-icon" />
-              <p>Lorem, ipsum dolor sit amet consectetur elit.</p>
-            </li>
-          </ul>         
+          
+          </ul>
         </article>
 
         {/* End of Content Creation */}
-
-        </div>
+      </div>
     </section>
-    )
-    }
+  );
+};
 
-export default Services
+export default Services;

@@ -46,11 +46,11 @@
 
 .service__list-icon {
     color: var(--color-primary);
-    margin: 2px;
+    margin: 0.6rem;
 }
 
 .service__list p {
-    font-size: 0.9rem;
+    font-size: 1rem;
 }
 
 
