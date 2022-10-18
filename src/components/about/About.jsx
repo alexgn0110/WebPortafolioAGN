@@ -38,15 +38,22 @@ const About = () => {
               <small> 15+ Completed </small>
             </article>
           </div>
-
-    <p> 
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-     magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo 
-     consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-     Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </p>
-
-      <a href="#contact" className="btn btn-primary"> Let's talk </a>
+          <p>
+            I create websites that are fast, easy to use, and built with best
+            practices.{" "}
+          </p>{" "}
+          <p>
+            My main experience is in frontend development but I also have a
+            passion for design.
+          </p>
+          <p>
+          My main goal is to combine technology 
+          and design to create inviting, easy-to-use websites for consumers.
+          </p>
+          <a href="#contact" className="btn btn-primary">
+            {" "}
+            Let's talk{" "}
+          </a>
         </div>
       </div>
     </section>
