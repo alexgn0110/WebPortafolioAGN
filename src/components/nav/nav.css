@@ -1,5 +1,5 @@
 nav {
-    background: rgb(66, 58, 58);
+    background: rgb(0,0,0,0.3);
     width: max-content;
     display: block;
     padding: 0.1rem 1.5rem;
@@ -25,10 +25,22 @@ nav a {
 }
 
 nav a:hover {
-    background: rgba(143, 139, 139, 0.589);
+    background: rgba(0,0,0,0.3);
 }
 
 nav a.active {
-    background: rgba(100, 91, 91, 0.589);
-    color: var(--color-white);
+    background: var(--color-primary);
+    color: var(--color-bg);
 }
+
+  /* ================ MEDIA QUERIES (Small DEVICES) ================= */
+        @media screen and (max-width: 600px) {
+.permalinks {
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.footer__socials{
+    margin-bottom: 2.6rem;
+}
+        }
