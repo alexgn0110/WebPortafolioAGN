@@ -27,7 +27,7 @@ const Portafolio = () => {
       <h3> Keeper App Project </h3>
       <div className="portafolio__item-cta"></div>
       <a href="Https://github.com" className="btn">Github </a>
-      <a href="https://dribbble.com/Alien_pixels" className="btn btn-primary" target='_blank'> Live Demo</a>
+      <a href="Https://github.com" className="btn btn-primary" target='_blank'> Live Demo</a>
       </div>
     </article>
 
@@ -37,7 +37,7 @@ const Portafolio = () => {
       <h3> Data  Statistics Visualizer </h3>
       <div className="portafolio__item-cta">
       <a href="Https://github.com" className="btn">Github </a>
-      <a href="https://dribbble.com/Alien_pixels" className="btn btn-primary" target='_blank'> Live Demo</a>
+      <a href="Https://github.com" className="btn btn-primary" target='_blank'> Live Demo</a>
       </div>
     </article>
 

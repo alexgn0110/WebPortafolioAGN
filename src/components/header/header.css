@@ -49,11 +49,11 @@ header {
     width: 21rem;
     height: 30rem;
     position: absolute;
-    left: calc(50% - 11rem);
+    left: calc(50% - 10rem);
     margin-top: 4rem;
     border-radius: 12rem 12rem 0 0;
     overflow: hidden;
-    padding: 5rem 1.5rem 1.5rem 1.5rem;
+    padding: 3rem 1.5rem 1.5rem 1.5rem;
 }
 
 /* ======================= Scroll Down========================== */
@@ -80,7 +80,5 @@ header {
         height: 100vh;
     }
 
-    .header__socials, .scroll__down {
-        display: none;
-    }
+    
 }
