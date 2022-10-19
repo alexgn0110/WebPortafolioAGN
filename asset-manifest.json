@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/WebPortafolioAGN/static/css/main.b9eafa72.css",
-    "main.js": "/WebPortafolioAGN/static/js/main.9b701590.js",
+    "main.css": "/WebPortafolioAGN/static/css/main.d42e1e5d.css",
+    "main.js": "/WebPortafolioAGN/static/js/main.743ff6b7.js",
     "static/media/me3.png": "/WebPortafolioAGN/static/media/me3.52bb5f4c74e2a88a0639.png",
     "static/media/portfolio3.jpg": "/WebPortafolioAGN/static/media/portfolio3.576ebdd62bc41fb67568.jpg",
     "static/media/bg-texture.png": "/WebPortafolioAGN/static/media/bg-texture.e266869d68032b4d19a7.png",
@@ -10,11 +10,11 @@
     "static/media/CV-Alejandro-Gutierrez-Novo.pdf": "/WebPortafolioAGN/static/media/CV-Alejandro-Gutierrez-Novo.ad8083dd9858270bb167.pdf",
     "static/media/reactlogo.png": "/WebPortafolioAGN/static/media/reactlogo.774154d3e49b189c8508.png",
     "index.html": "/WebPortafolioAGN/index.html",
-    "main.b9eafa72.css.map": "/WebPortafolioAGN/static/css/main.b9eafa72.css.map",
-    "main.9b701590.js.map": "/WebPortafolioAGN/static/js/main.9b701590.js.map"
+    "main.d42e1e5d.css.map": "/WebPortafolioAGN/static/css/main.d42e1e5d.css.map",
+    "main.743ff6b7.js.map": "/WebPortafolioAGN/static/js/main.743ff6b7.js.map"
   },
   "entrypoints": [
-    "static/css/main.b9eafa72.css",
-    "static/js/main.9b701590.js"
+    "static/css/main.d42e1e5d.css",
+    "static/js/main.743ff6b7.js"
   ]
 }
