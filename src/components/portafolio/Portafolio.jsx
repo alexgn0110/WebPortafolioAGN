@@ -18,8 +18,7 @@ const Portafolio = () => {
     <img src={IMG1} alt= ""/>
       <h3> Defi - Decentralised Finance DApp - DBANK </h3>
       <div className="portafolio__item-cta">
-      <a href="https://github.com" className="btn"> Github </a>
-      <a href="Https://github.com" className="btn btn-primary" target='_blank'> Live Demo</a>
+      <a href="https://github.com/alexgn0110/DBank" className="btn"> Github </a>
       </div>
     </article>
 
