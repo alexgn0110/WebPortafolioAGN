@@ -2,7 +2,7 @@ import React from "react";
 import "./about.css";
 import ME from "../../assets/reactlogo.png";
 import { FaAward } from "react-icons/fa";
-import { FiUsers } from "react-icons/fi";
+import { MdOutlineLiving } from "react-icons/md";
 import { VscFolderLibrary } from "react-icons/vsc";
 
 const About = () => {
@@ -27,9 +27,9 @@ const About = () => {
             </article>
 
             <article className="about__card">
-              <FiUsers className="about__icon" />
-              <h5> Residing Currently  </h5>
-              <small> In Monterrey, Nuevo Leon, Mexico </small>
+              <MdOutlineLiving className="about__icon" />
+              <h5> Living in </h5>
+              <small> In Monterrey ,NL, México </small>
             </article>
 
             <article className="about__card">
@@ -40,15 +40,10 @@ const About = () => {
           </div>
           <p>
             I create websites that are fast, easy to use, and built with best
-            practices.{" "}
-          </p>{" "}
-          <p>
-            My main experience is in frontend development but I also have a
-            passion for design.
-          </p>
-          <p>
-          My main goal is to combine technology 
-          and design to create inviting, easy-to-use websites for consumers.
+            practices. <br /> My main experience is in frontend development but
+            I also have a passion for design. <br />
+            My goal is to combine technology and design to create inviting,
+            easy-to-use websites.{" "}
           </p>
           <a href="#contact" className="btn btn-primary">
             {" "}
