@@ -3,7 +3,7 @@ import "./portafolio.css";
 import IMG1 from "../../assets/portfolio1.png"
 import IMG2 from "../../assets/portfolio5.png"
 import IMG3 from "../../assets/portfolio3.jpg"
-import IMG4 from "../../assets/portfolio4.jpg"
+import IMG4 from "../../assets/portfolio4.png"
 import IMG5 from "../../assets/portfolio6.png"
 
 const Portafolio = () => {

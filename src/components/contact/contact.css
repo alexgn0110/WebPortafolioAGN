@@ -4,7 +4,7 @@
     width: 60%;
     display: grid;
     grid-template-columns: 30% 58%;
-    gap: 12%;
+    gap: 10%;
 }
 
 .contact__options {
@@ -28,7 +28,7 @@
 }
 
 .contact__option-icon {
-    font-size: 1.5rem;
+    font-size: 2rem;
     margin-bottom: 0.5rem;
 }
 
@@ -50,13 +50,15 @@
 }
 
 input, textarea {
-    width: 100%;
-    padding: 1.5rem;
+    width: 90%;
+    padding: 1.3rem;
     border-radius: 0.5rem;
     background: transparent;
-    border: 2px solid var(--color-bg-variant);
+    border: 2px solid var(--color-primary);
     resize: none;
     color: var(--color-white);
+    font-size: 0.8rem;
+    font-family: 'Poppins';
 }
 
 
