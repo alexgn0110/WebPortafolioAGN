@@ -22,7 +22,7 @@
     --transition: all 400ms ease;
     --container-width-lg: 75%;
     --container-width-md: 86%;
-    --container-width-sm: 93%;
+    --container-width-sm: 90%;
 }
 
 html {
@@ -134,7 +134,7 @@ img {
     
 
     /* ================ MEDIA QUERIES (SMALL DEVICES) ================= */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 6240px) {
     .container{
     width: var(--container-width-sm);
     }

@@ -10,7 +10,7 @@ const Portafolio = () => {
   return (
   <section id="portafolio"> 
   <h5> My Recent Work</h5>
-  <h2> Portafolio </h2>
+  <h2> Portfolio </h2>
 
   <div className="container portafolio__container">
     <article className="portafolio__item">
@@ -54,7 +54,7 @@ const Portafolio = () => {
     <article className="portafolio__item">
       <div className="portafolio__item-image"> </div>
     <img src={IMG5} alt= ""/>
-      <h3> This Proyect - WebPortafolio</h3>
+      <h3> This Project - WebPortfolio</h3>
       <div className="portafolio__item-cta">
       <a href="https://github.com/alexgn0110/WebPortafolioAGN" className="btn">Github </a>
       <a href="https://alexgn0110.github.io/WebPortafolioAGN/" className="btn btn-primary" target='_blank'> Live Demo</a>
