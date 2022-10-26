@@ -14,11 +14,12 @@ const Portafolio = () => {
 
   <div className="container portafolio__container">
     <article className="portafolio__item">
-      <div className="portafolio__item-image"> </div>
+      <div className="portafolio__item-image"> 
     <img src={IMG1} alt= ""/>
       <h3> Defi - Decentralised Finance DApp - DBANK </h3>
       <div className="portafolio__item-cta">
       <a href="https://github.com/alexgn0110/DBank" className="btn"> Github </a>
+      </div>
       </div>
     </article>
 
@@ -33,31 +34,31 @@ const Portafolio = () => {
     </article>
 
     <article className="portafolio__item">
-      <div className="portafolio__item-image"> </div>
+      <div className="portafolio__item-image"> 
     <img src={IMG3} alt= ""/>
       <h3> Data  Statistics Visualizer </h3>
-      <div className="portafolio__item-cta">
-      
       </div>
     </article>
 
     <article className="portafolio__item">
-      <div className="portafolio__item-image"> </div>
+      <div className="portafolio__item-image"> 
     <img src={IMG4} alt= ""/>
       <h3> React Calc App </h3>
       <div className="portafolio__item-cta">
       <a href="https://github.com/alexgn0110/Cal-App" className="btn">Github </a>
       <a href="https://alexgn0110.github.io/Cal-App/" className="btn btn-primary" target='_blank'> Live Demo</a>
       </div>
+      </div>
     </article>
 
     <article className="portafolio__item">
-      <div className="portafolio__item-image"> </div>
+      <div className="portafolio__item-image"> 
     <img src={IMG5} alt= ""/>
       <h3> This Project - WebPortfolio</h3>
       <div className="portafolio__item-cta">
       <a href="https://github.com/alexgn0110/WebPortafolioAGN" className="btn">Github </a>
       <a href="https://alexgn0110.github.io/WebPortafolioAGN/" className="btn btn-primary" target='_blank'> Live Demo</a>
+      </div>
       </div>
     </article>
 

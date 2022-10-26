@@ -1,7 +1,7 @@
 .portafolio__container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    gap: 3rem;
 }
 
 
@@ -9,7 +9,7 @@
 .portafolio__item {
     background: var(--color-bg-variant);
     padding: 1.3rem;
-    border-radius: 2rem;
+    border-radius: 4rem;
     border: 1px solid transparent;
     transition: var(--trasnsition);
 
@@ -21,8 +21,13 @@
 }
 
 .portafolio__item-image {
+    background: transparent;
+    padding: 1rem;
     border-radius: 1.5rem;
     overflow: hidden;
+    border-radius: 2rem;
+    box-shadow: 0 2rem 1rem rgba(163, 152, 152, 0.1)
+  
 }
 
 .portafolio__item h3 {
