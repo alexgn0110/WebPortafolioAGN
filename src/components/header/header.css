@@ -26,16 +26,17 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.8rem;
+    gap: 2rem;
     position: absolute;
     left: 0;
     bottom: 3rems;
+    font-size: large;
 
 }
 
 .header__socials::after {
     content: "";
-    width: 1px;
+    width: 2px;
     height: 2rem;
     background: var(--color-primary);
 
@@ -47,14 +48,14 @@ header {
 .me {
     background: linear-gradient(transparent);
     width: 26rem;
-    height: 22rem;
+    height: 25rem;
     position:absolute;
     left: calc(50% - 12.9rem);
-    margin-top: 8rem;
+    margin-top: 12rem;
     border-radius: 6rem;
    
-    padding: 1.8rem 4rem;
-    box-shadow: 1rem 0.5rem 3rem 0.1rem rgba(109, 105, 105, 0.863)
+    padding: 1.3rem 2rem;
+    box-shadow: 1.9rem 0.5rem 3rem 0.1rem rgba(109, 105, 105, 0.863)
 }
 
 /* ======================= Scroll Down========================== */
@@ -78,7 +79,7 @@ header {
 /* ================ MEDIA QUERIES (Small DEVICES) ================= */
 @media screen and (max-width: 600px) {
     header {
-        height: 110vh;
+        height: 115vh;
     }
 
     .scroll__down{
