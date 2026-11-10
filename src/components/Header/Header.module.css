@@ -1,0 +1,123 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  height: var(--header-h);
+  border-bottom: 1px solid transparent;
+  transition:
+    background-color var(--duration) var(--ease),
+    border-color var(--duration) var(--ease);
+}
+
+.scrolled {
+  background: color-mix(in srgb, var(--bg) 78%, transparent);
+  border-bottom-color: var(--border);
+  backdrop-filter: saturate(160%) blur(12px);
+  -webkit-backdrop-filter: saturate(160%) blur(12px);
+}
+
+.inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.logo {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  color: var(--muted);
+  transition: color var(--duration) var(--ease);
+}
+
+.logo:hover {
+  color: var(--text);
+}
+
+.logoName {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.nav {
+  margin-inline: auto;
+}
+
+.links {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.link {
+  position: relative;
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  color: var(--muted);
+  transition:
+    color var(--duration) var(--ease),
+    background-color var(--duration) var(--ease);
+}
+
+.link:hover {
+  color: var(--text);
+}
+
+.link[aria-current='location'] {
+  color: var(--text);
+  background: var(--surface);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.paletteBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 2.25rem;
+  padding: 0 0.5rem 0 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg-elev);
+  color: var(--muted);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition:
+    color var(--duration) var(--ease),
+    border-color var(--duration) var(--ease);
+}
+
+.paletteBtn:hover {
+  color: var(--text);
+  border-color: var(--border-strong);
+}
+
+.menuBtn {
+  display: none;
+}
+
+@media (max-width: 860px) {
+  .nav,
+  .paletteLabel {
+    display: none;
+  }
+
+  .actions {
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 560px) {
+  .paletteBtn {
+    display: none;
+  }
+
+  .menuBtn {
+    display: inline-grid;
+  }
+}

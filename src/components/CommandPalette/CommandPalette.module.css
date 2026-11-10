@@ -1,0 +1,126 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 12vh 1rem 1rem;
+  background: rgb(5 7 12 / 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  animation: fade 150ms var(--ease);
+}
+
+.dialog {
+  width: min(100%, 36rem);
+  max-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-strong);
+  background: var(--bg-elev);
+  box-shadow: 0 30px 80px -20px rgb(0 0 0 / 0.55);
+  animation: pop 180ms var(--ease);
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--subtle);
+}
+
+.search input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.search input:focus-visible {
+  outline: none;
+}
+
+.search input::placeholder {
+  color: var(--subtle);
+}
+
+.list {
+  list-style: none;
+  padding: 0.4rem;
+  margin: 0;
+  overflow-y: auto;
+}
+
+.group {
+  padding: 0.6rem 0.75rem 0.3rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--subtle);
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.65rem 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.option[aria-selected='true'] {
+  background: var(--accent-soft);
+  color: var(--text);
+}
+
+.icon {
+  display: inline-grid;
+  place-items: center;
+  color: var(--muted);
+}
+
+.option[aria-selected='true'] .icon {
+  color: var(--accent);
+}
+
+.enter {
+  margin-left: auto;
+  color: var(--subtle);
+}
+
+.empty {
+  padding: 1.5rem 0.75rem;
+  text-align: center;
+  color: var(--subtle);
+}
+
+.footer {
+  display: flex;
+  gap: 1rem;
+  padding: 0.6rem 1rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.75rem;
+  color: var(--subtle);
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.98);
+  }
+}

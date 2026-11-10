@@ -1,0 +1,101 @@
+.timeline {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 11rem 1fr;
+  gap: 1.5rem;
+  padding: 1.5rem 1.5rem 1.6rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid transparent;
+  transition:
+    background-color var(--duration) var(--ease),
+    border-color var(--duration) var(--ease);
+}
+
+.item:hover {
+  background: var(--bg-elev);
+  border-color: var(--border);
+}
+
+.period {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--subtle);
+  padding-top: 0.2rem;
+  white-space: nowrap;
+}
+
+.role {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.at {
+  color: var(--subtle);
+  font-weight: 400;
+}
+
+.company {
+  color: var(--accent);
+}
+
+.where {
+  margin-top: 0.15rem;
+  font-size: 0.875rem;
+  color: var(--subtle);
+}
+
+.highlights {
+  margin: 0.85rem 0 1rem;
+  padding-left: 1.1rem;
+  display: grid;
+  gap: 0.35rem;
+  color: var(--muted);
+  font-size: 0.97rem;
+}
+
+.highlights li::marker {
+  color: var(--accent);
+}
+
+.earlier {
+  margin-top: 1.5rem;
+  padding-inline: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--subtle);
+}
+
+.earlierLabel {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-right: 0.5rem;
+  color: var(--muted);
+}
+
+@media (max-width: 760px) {
+  .item {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+    padding: 1.25rem 0;
+    border-radius: 0;
+    border-width: 0 0 1px;
+    border-color: var(--border);
+  }
+
+  .item:hover {
+    background: transparent;
+    border-color: var(--border);
+  }
+
+  .earlier {
+    padding-inline: 0;
+  }
+}
