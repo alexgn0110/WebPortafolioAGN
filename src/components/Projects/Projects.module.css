@@ -90,12 +90,13 @@
 /* Featured project: image beside the text on wide screens */
 .featured .card {
   flex-direction: row;
+  align-items: center;
 }
 
+/* Keep the social-card artwork at its native 1200×630 ratio so it is never cropped */
 .featured .media {
   flex: 1.15;
-  aspect-ratio: auto;
-  min-height: 18rem;
+  aspect-ratio: 1200 / 630;
   border-bottom: 0;
   border-right: 1px solid var(--border);
 }
