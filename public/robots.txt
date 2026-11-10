@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://alexgn0110.github.io/WebPortafolioAGN/sitemap.xml

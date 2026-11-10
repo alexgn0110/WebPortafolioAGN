@@ -1,0 +1,41 @@
+.footer {
+  border-top: 1px solid var(--border);
+  padding-block: 2rem;
+  font-size: 0.875rem;
+  color: var(--subtle);
+}
+
+.inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.link {
+  color: var(--muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--border-strong);
+}
+
+.link:hover {
+  color: var(--accent);
+  text-decoration-color: currentColor;
+}
+
+.hint kbd {
+  margin-inline: 0.2rem;
+}
+
+.socials {
+  display: flex;
+  gap: 0.25rem;
+}
+
+@media (max-width: 760px) {
+  .hint {
+    display: none;
+  }
+}
