@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alejandro Gutierrez Novo — Senior Frontend Engineer</title>
+    <meta
+      name="description"
+      content="Senior Frontend Engineer with 7+ years building production web apps with React, TypeScript and Redux. Based in Monterrey, Mexico (UTC-6), open to remote and hybrid roles."
+    />
+    <meta name="author" content="Alejandro Gutierrez Novo" />
+    <link rel="canonical" href="https://alexgn0110.github.io/WebPortafolioAGN/" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#0b0d12" />
+    <meta name="color-scheme" content="dark light" />
+
+    <!-- Open Graph / social preview -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:site_name" content="Alejandro Gutierrez Novo" />
+    <meta property="og:title" content="Alejandro Gutierrez Novo — Senior Frontend Engineer" />
+    <meta
+      property="og:description"
+      content="React · TypeScript · Redux · Jest. 7+ years building production UIs. Open to remote and hybrid roles (UTC-6)."
+    />
+    <meta property="og:url" content="https://alexgn0110.github.io/WebPortafolioAGN/" />
+    <meta
+      property="og:image"
+      content="https://alexgn0110.github.io/WebPortafolioAGN/og-image.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Alejandro Gutierrez Novo, Senior Frontend Engineer" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preload" as="image" href="/images/avatar.webp" type="image/webp" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Alejandro Gutierrez Novo",
+        "jobTitle": "Senior Frontend Engineer",
+        "url": "https://alexgn0110.github.io/WebPortafolioAGN/",
+        "image": "https://alexgn0110.github.io/WebPortafolioAGN/og-image.png",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Monterrey",
+          "addressRegion": "NL",
+          "addressCountry": "MX"
+        },
+        "alumniOf": "Universidad Autónoma de Nuevo León",
+        "knowsAbout": [
+          "React",
+          "TypeScript",
+          "Redux",
+          "Jest",
+          "React Testing Library",
+          "Frontend Engineering"
+        ],
+        "sameAs": ["https://github.com/alexgn0110", "https://www.linkedin.com/in/alexgtznovo/"]
+      }
+    </script>
+
+    <!-- Apply the saved / system theme before first paint to avoid a flash of the wrong theme -->
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem('theme');
+          var theme =
+            saved === 'light' || saved === 'dark'
+              ? saved
+              : window.matchMedia('(prefers-color-scheme: light)').matches
+                ? 'light'
+                : 'dark';
+          document.documentElement.dataset.theme = theme;
+        } catch (e) {}
+        document.documentElement.classList.add('js');
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>
+      <p style="padding: 2rem; font-family: system-ui">
+        Alejandro Gutierrez Novo — Senior Frontend Engineer. Email:
+        <a href="mailto:alex_guno0110@hotmail.com">alex_guno0110@hotmail.com</a>
+      </p>
+    </noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
