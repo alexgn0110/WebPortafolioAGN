@@ -52,10 +52,10 @@ export function Contact() {
     <Section id="contact" index={5} title="Contact">
       <div className={styles.grid}>
         <div className={styles.intro}>
-          <p className={styles.lead}>Let’s build something together.</p>
+          <p className={styles.lead}>Available for remote and hybrid frontend roles.</p>
           <p className={styles.text}>
-            I’m open to remote and hybrid frontend roles and contract work. The fastest way to reach
-            me is email, or send a message right here.
+            For job opportunities or contract work, email me directly or use the form. I’m based in
+            Monterrey, Mexico (UTC-6), with full overlap with US business hours.
           </p>
 
           <div className={`card ${styles.email}`}>
