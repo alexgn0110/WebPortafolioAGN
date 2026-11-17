@@ -9,8 +9,23 @@
   --container: 70rem;
   --header-h: 64px;
 
-  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
-  --duration: 200ms;
+  /*
+   * Motion system (see the "Motion & UX principles" section on the site).
+   * Snappy timing: every UI response stays at or under 300ms.
+   * Slow in & slow out: nothing moves linearly; entrances decelerate, exits accelerate.
+   */
+  --dur-instant: 100ms; /* hover tints, frequently used controls */
+  --dur-fast: 160ms; /* presses, small state changes */
+  --dur-base: 220ms; /* most transitions */
+  --dur-slow: 300ms; /* larger surfaces: dialogs, reveals */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1); /* decelerate into place */
+  --ease-in: cubic-bezier(0.55, 0, 1, 0.45); /* accelerate away */
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1); /* overshoot, then settle (follow through) */
+
+  /* Legacy aliases used by components */
+  --ease: var(--ease-out);
+  --duration: var(--dur-base);
 }
 
 :root[data-theme='dark'] {
@@ -167,6 +182,12 @@ main:focus {
   max-width: 18rem;
 }
 
+@media (max-width: 560px) {
+  .section-heading::after {
+    display: none;
+  }
+}
+
 .section-index {
   font-family: var(--font-mono);
   font-size: 0.95rem;
@@ -189,18 +210,60 @@ main:focus {
   font-weight: 500;
   cursor: pointer;
   transition:
-    background-color var(--duration) var(--ease),
-    border-color var(--duration) var(--ease),
-    transform var(--duration) var(--ease);
+    background-color var(--dur-instant) var(--ease-out),
+    border-color var(--dur-instant) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out),
+    transform var(--dur-base) var(--ease-spring);
 }
 
 .btn:hover {
   border-color: var(--accent);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px -14px var(--glow);
 }
 
+/* Squash & stretch: a quick press compresses the button so it feels physical */
 .btn:active {
-  transform: translateY(0);
+  transform: translateY(0) scale(0.96);
+  transition-duration: var(--dur-instant);
+}
+
+.btn svg {
+  transition: transform var(--dur-base) var(--ease-spring);
+}
+
+/* Anticipation: the arrow pulls back slightly, then shoots forward */
+@keyframes anticipate-right {
+  0% {
+    transform: translateX(0);
+  }
+  35% {
+    transform: translateX(-3px);
+  }
+  100% {
+    transform: translateX(4px);
+  }
+}
+
+.btn[data-motion='forward']:hover svg {
+  animation: anticipate-right var(--dur-slow) var(--ease-out) forwards;
+}
+
+/* Anticipation for downloads: a small lift before dropping into place */
+@keyframes anticipate-down {
+  0% {
+    transform: translateY(0);
+  }
+  35% {
+    transform: translateY(-3px);
+  }
+  100% {
+    transform: translateY(2px);
+  }
+}
+
+.btn[data-motion='download']:hover svg {
+  animation: anticipate-down var(--dur-slow) var(--ease-out) forwards;
 }
 
 .btn-primary {
@@ -221,6 +284,7 @@ main:focus {
 }
 
 .icon-btn {
+  position: relative;
   display: inline-grid;
   place-items: center;
   width: 2.5rem;
@@ -231,15 +295,68 @@ main:focus {
   color: var(--muted);
   cursor: pointer;
   transition:
-    color var(--duration) var(--ease),
-    background-color var(--duration) var(--ease),
-    border-color var(--duration) var(--ease);
+    color var(--dur-instant) var(--ease-out),
+    background-color var(--dur-instant) var(--ease-out),
+    border-color var(--dur-instant) var(--ease-out),
+    transform var(--dur-fast) var(--ease-spring);
+}
+
+/* Bigger hit areas / Fitts's law: the clickable area extends past the visible circle */
+.icon-btn::after,
+.hit-area::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: inherit;
+}
+
+.hit-area {
+  position: relative;
 }
 
 .icon-btn:hover {
   color: var(--text);
   background: var(--surface);
   border-color: var(--border);
+}
+
+.icon-btn:active {
+  transform: scale(0.9);
+}
+
+/* Moving in arcs + follow through: icons rotate in along a curve and overshoot before settling */
+@keyframes swap-in {
+  from {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.5);
+  }
+}
+
+.swap-in {
+  display: inline-grid;
+  place-items: center;
+  animation: swap-in var(--dur-slow) var(--ease-spring);
+}
+
+/* Exaggerated feedback: success states pop past full size, then settle */
+@keyframes pop {
+  0% {
+    transform: scale(0.4);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.25);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.pop-in {
+  display: inline-grid;
+  place-items: center;
+  animation: pop var(--dur-slow) var(--ease-out);
 }
 
 .tag {
@@ -310,12 +427,13 @@ kbd {
 
 /* ============ Scroll reveal (progressive enhancement) ============ */
 @media (prefers-reduced-motion: no-preference) {
+  /* Staging: each section enters on its own as it reaches the viewport */
   .js [data-reveal] {
     opacity: 0;
-    transform: translateY(14px);
+    transform: translateY(10px);
     transition:
-      opacity 600ms var(--ease),
-      transform 600ms var(--ease);
+      opacity var(--dur-slow) var(--ease-out),
+      transform var(--dur-slow) var(--ease-out);
   }
 
   .js [data-reveal].is-visible {

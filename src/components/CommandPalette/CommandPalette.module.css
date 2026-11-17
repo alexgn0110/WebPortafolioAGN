@@ -9,7 +9,7 @@
   background: rgb(5 7 12 / 0.55);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
-  animation: fade 150ms var(--ease);
+  animation: fade var(--dur-fast) var(--ease-out);
 }
 
 .dialog {
@@ -22,7 +22,7 @@
   border: 1px solid var(--border-strong);
   background: var(--bg-elev);
   box-shadow: 0 30px 80px -20px rgb(0 0 0 / 0.55);
-  animation: pop 180ms var(--ease);
+  animation: pop var(--dur-base) var(--ease-spring);
 }
 
 .search {
@@ -123,4 +123,18 @@
     opacity: 0;
     transform: translateY(-6px) scale(0.98);
   }
+}
+
+/* Frequency of use: after the first open, skip the pop and just fade quickly */
+.overlay[data-familiar='true'] {
+  animation-duration: var(--dur-instant);
+}
+
+.overlay[data-familiar='true'] .dialog {
+  animation: fade var(--dur-instant) var(--ease-out);
+}
+
+/* Staging: the active option is the only element with an accent, so the eye lands there */
+.option {
+  transition: background-color var(--dur-instant) var(--ease-out);
 }

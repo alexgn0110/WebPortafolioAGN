@@ -8,6 +8,7 @@ import {
   type ReactNode,
 } from 'react';
 import { FiCornerDownLeft, FiSearch } from 'react-icons/fi';
+import { normalize } from '../../lib/clean';
 import styles from './CommandPalette.module.css';
 
 export interface Command {
@@ -23,18 +24,19 @@ interface CommandPaletteProps {
   open: boolean;
   onClose: () => void;
   commands: Command[];
+  /** Frequency of use: once the menu has been opened, later opens skip the entrance flourish. */
+  familiar?: boolean;
 }
 
 const matches = (command: Command, query: string) => {
-  const haystack = `${command.label} ${command.group} ${command.keywords ?? ''}`.toLowerCase();
-  return query
-    .toLowerCase()
+  const haystack = normalize(`${command.label} ${command.group} ${command.keywords ?? ''}`);
+  return normalize(query)
     .split(/\s+/)
     .filter(Boolean)
     .every((term) => haystack.includes(term));
 };
 
-export function CommandPalette({ open, onClose, commands }: CommandPaletteProps) {
+export function CommandPalette({ open, onClose, commands, familiar = false }: CommandPaletteProps) {
   const [query, setQuery] = useState('');
   const [activeIndex, setActiveIndex] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -107,7 +109,7 @@ export function CommandPalette({ open, onClose, commands }: CommandPaletteProps)
   return (
     // Clicking the backdrop closes the menu; keyboard users close it with Escape.
     // eslint-disable-next-line jsx-a11y/no-static-element-interactions
-    <div className={styles.overlay} onMouseDown={onClose}>
+    <div className={styles.overlay} onMouseDown={onClose} data-familiar={familiar}>
       {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
       <div
         role="dialog"

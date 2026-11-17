@@ -11,6 +11,7 @@ import {
   FiMoon,
   FiSun,
   FiUser,
+  FiZap,
 } from 'react-icons/fi';
 import { Header } from './components/Header/Header';
 import { Hero } from './components/Hero/Hero';
@@ -18,6 +19,7 @@ import { About } from './components/About/About';
 import { Experience } from './components/Experience/Experience';
 import { Skills } from './components/Skills/Skills';
 import { Projects } from './components/Projects/Projects';
+import { Principles } from './components/Principles/Principles';
 import { Contact } from './components/Contact/Contact';
 import { Footer } from './components/Footer/Footer';
 import { CommandPalette, type Command } from './components/CommandPalette/CommandPalette';
@@ -31,7 +33,18 @@ const SECTION_ICONS = {
   experience: <FiBriefcase />,
   skills: <FiCode />,
   projects: <FiFolder />,
+  principles: <FiZap />,
   contact: <FiMail />,
+} as const;
+
+/** Postel's law: Spanish (and casual) search terms map to the same sections. */
+const SECTION_KEYWORDS = {
+  about: 'acerca sobre mi bio',
+  experience: 'experiencia trabajo jobs career',
+  skills: 'habilidades stack tecnologias tech',
+  projects: 'proyectos portfolio work',
+  principles: 'principios motion animation ux laws animacion',
+  contact: 'contacto email correo hire',
 } as const;
 
 const isMac = typeof navigator !== 'undefined' && /Mac|iPhone|iPad/.test(navigator.platform);
@@ -39,10 +52,15 @@ const isMac = typeof navigator !== 'undefined' && /Mac|iPhone|iPad/.test(navigat
 export default function App() {
   const { theme, toggleTheme } = useTheme();
   const [paletteOpen, setPaletteOpen] = useState(false);
+  // Frequency of use: after the first time, the menu opens without the entrance flourish.
+  const [paletteFamiliar, setPaletteFamiliar] = useState(false);
   useReveal();
 
   const openPalette = useCallback(() => setPaletteOpen(true), []);
-  const closePalette = useCallback(() => setPaletteOpen(false), []);
+  const closePalette = useCallback(() => {
+    setPaletteOpen(false);
+    setPaletteFamiliar(true);
+  }, []);
 
   // ⌘K / Ctrl+K toggles the command menu from anywhere.
   useEffect(() => {
@@ -67,6 +85,7 @@ export default function App() {
         label,
         group: 'Navigate',
         icon: SECTION_ICONS[id],
+        keywords: SECTION_KEYWORDS[id],
         run: goTo(id),
       })),
       {
@@ -143,10 +162,16 @@ export default function App() {
         <Experience />
         <Skills />
         <Projects />
+        <Principles />
         <Contact />
       </main>
       <Footer shortcutLabel={shortcutLabel} />
-      <CommandPalette open={paletteOpen} onClose={closePalette} commands={commands} />
+      <CommandPalette
+        open={paletteOpen}
+        onClose={closePalette}
+        commands={commands}
+        familiar={paletteFamiliar}
+      />
     </>
   );
 }

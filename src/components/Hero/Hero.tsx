@@ -27,10 +27,15 @@ export function Hero() {
           <p className={styles.summary}>{profile.summary}</p>
 
           <div className={styles.ctas}>
-            <a className="btn btn-primary" href={asset(profile.resumeFile)} download>
+            <a
+              className="btn btn-primary"
+              href={asset(profile.resumeFile)}
+              download
+              data-motion="download"
+            >
               <FiDownload aria-hidden="true" /> Download CV
             </a>
-            <a className="btn" href="#contact">
+            <a className="btn" href="#contact" data-motion="forward">
               Get in touch <FiArrowRight aria-hidden="true" />
             </a>
           </div>

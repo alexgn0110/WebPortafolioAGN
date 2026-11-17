@@ -34,6 +34,31 @@ describe('CommandPalette', () => {
     expect(screen.getByText(/no results/i)).toBeInTheDocument();
   });
 
+  it("accepts messy queries: Spanish terms, accents and capitals (Postel's law)", async () => {
+    const user = userEvent.setup();
+    render(<App />);
+    await openWithShortcut(user);
+
+    await user.type(screen.getByRole('combobox'), '  PROYECTOS ');
+    expect(screen.getByRole('option', { name: 'Projects' })).toBeInTheDocument();
+
+    await user.clear(screen.getByRole('combobox'));
+    await user.type(screen.getByRole('combobox'), 'contácto');
+    expect(screen.getByRole('option', { name: 'Contact' })).toBeInTheDocument();
+  });
+
+  it('skips the entrance flourish after the first open (frequency of use)', async () => {
+    const user = userEvent.setup();
+    render(<App />);
+
+    await openWithShortcut(user);
+    expect(screen.getByRole('dialog').parentElement).toHaveAttribute('data-familiar', 'false');
+    await user.keyboard('{Escape}');
+
+    await openWithShortcut(user);
+    expect(screen.getByRole('dialog').parentElement).toHaveAttribute('data-familiar', 'true');
+  });
+
   it('moves the active option with the arrow keys and runs it with Enter', async () => {
     const user = userEvent.setup();
     render(<App />);

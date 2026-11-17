@@ -13,14 +13,21 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  /* Solid drawing in 3D: --tilt-x/--tilt-y are set by useTilt from the pointer position */
+  transform: perspective(900px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
   transition:
-    transform var(--duration) var(--ease),
-    border-color var(--duration) var(--ease);
+    transform var(--dur-base) var(--ease-out),
+    border-color var(--dur-instant) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out);
 }
 
 .card:hover {
-  transform: translateY(-3px);
+  transform: perspective(900px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg))
+    translateY(-4px);
   border-color: var(--border-strong);
+  box-shadow:
+    var(--shadow),
+    0 24px 48px -28px var(--glow);
 }
 
 .media {
@@ -34,7 +41,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 500ms var(--ease);
+  transition: transform var(--dur-slow) var(--ease-out);
 }
 
 .card:hover .media img {

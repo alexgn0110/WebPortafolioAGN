@@ -1,16 +1,18 @@
 import { FiExternalLink, FiGithub } from 'react-icons/fi';
 import { projects } from '../../data/profile';
 import { asset } from '../../lib/asset';
+import { useTilt } from '../../hooks/useTilt';
 import { Section } from '../Section/Section';
 import styles from './Projects.module.css';
 
 export function Projects() {
+  const tilt = useTilt<HTMLElement>();
   return (
     <Section id="projects" index={4} title="Projects">
       <ul role="list" className={styles.grid}>
         {projects.map((project) => (
           <li key={project.title} className={project.featured ? styles.featured : undefined}>
-            <article className={`card ${styles.card}`}>
+            <article className={`card ${styles.card}`} {...tilt}>
               <div className={styles.media}>
                 <img
                   src={asset(project.image)}
@@ -33,7 +35,12 @@ export function Projects() {
                   ))}
                 </ul>
                 <div className={styles.links}>
-                  <a href={project.code} target="_blank" rel="noreferrer" className={styles.link}>
+                  <a
+                    href={project.code}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={`hit-area ${styles.link}`}
+                  >
                     <FiGithub aria-hidden="true" /> Code
                     <span className="visually-hidden">
                       {' '}
@@ -41,7 +48,12 @@ export function Projects() {
                     </span>
                   </a>
                   {project.live && (
-                    <a href={project.live} target="_blank" rel="noreferrer" className={styles.link}>
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noreferrer"
+                      className={`hit-area ${styles.link}`}
+                    >
                       <FiExternalLink aria-hidden="true" /> Live demo
                       <span className="visually-hidden">
                         {' '}

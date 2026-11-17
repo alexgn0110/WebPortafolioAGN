@@ -30,6 +30,54 @@
   max-width: 40rem;
 }
 
+/*
+ * Staging + pose to pose: the hero settles in key poses, one element at a time
+ * (status → name → role → summary → actions), so the eye follows a single path.
+ */
+@keyframes pose-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+@keyframes portrait-in {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .copy > * {
+    animation: pose-in var(--dur-slow) var(--ease-out) both;
+  }
+
+  .copy > :nth-child(2) {
+    animation-delay: 60ms;
+  }
+
+  .copy > :nth-child(3) {
+    animation-delay: 120ms;
+  }
+
+  .copy > :nth-child(4) {
+    animation-delay: 180ms;
+  }
+
+  .copy > :nth-child(5) {
+    animation-delay: 240ms;
+  }
+
+  .copy > :nth-child(6) {
+    animation-delay: 300ms;
+  }
+
+  .portrait {
+    animation: portrait-in var(--dur-slow) var(--ease-spring) 120ms both;
+  }
+}
+
 .status {
   display: inline-flex;
   align-items: center;
@@ -154,6 +202,15 @@
   inset: -10px;
   border-radius: 50%;
   border: 1px dashed var(--border-strong);
+  transition:
+    transform var(--dur-slow) var(--ease-spring),
+    border-color var(--dur-base) var(--ease-out);
+}
+
+/* Moving in arcs + secondary action: the dashed orbit swings around the photo on hover */
+.portrait:hover::before {
+  transform: rotate(40deg);
+  border-color: var(--accent);
 }
 
 .portrait img {

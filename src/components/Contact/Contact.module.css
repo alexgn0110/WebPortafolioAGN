@@ -121,3 +121,60 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ===== Motion ===== */
+.copyBtn {
+  position: relative;
+}
+
+@keyframes bubble {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 4px) scale(0.9);
+  }
+  15%,
+  85% {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -2px);
+  }
+}
+
+.copiedBubble {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  background: var(--text);
+  color: var(--bg);
+  font-size: 0.72rem;
+  font-weight: 600;
+  white-space: nowrap;
+  pointer-events: none;
+  animation: bubble 1.8s var(--ease-out) forwards;
+}
+
+/* Exaggerated feedback: a short horizontal shake when the browser blocks an invalid submit */
+@keyframes shake {
+  20%,
+  60% {
+    transform: translateX(-6px);
+  }
+  40%,
+  80% {
+    transform: translateX(6px);
+  }
+}
+
+.shake {
+  animation: shake var(--dur-slow) var(--ease-in-out);
+}
+
+.field input:user-invalid,
+.field textarea:user-invalid {
+  border-color: var(--danger);
+}

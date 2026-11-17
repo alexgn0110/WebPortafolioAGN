@@ -29,6 +29,28 @@ Personal site of a Senior Frontend Engineer (React · TypeScript · Redux · Jes
 | Content         | Every section renders from one typed file, [`src/data/profile.ts`](src/data/profile.ts), so the site and the CV stay in sync                                                                          |
 | Contact form    | Accessible labels, loading / success / error states announced through an `aria-live` region, honeypot spam protection                                                                                 |
 
+## Motion & UX principles
+
+The site follows 20 principles of animation and UX, and shows them in an interactive section with one live demo each ([`src/components/Principles`](src/components/Principles)). How they are applied:
+
+| Principle                       | Where                                                                                                   |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| Squash & stretch                | Buttons compress on press (`.btn:active`)                                                               |
+| Anticipation                    | CTA icons pull back before moving (`data-motion="forward" / "download"`)                                |
+| Staging · Pose to pose          | Hero enters in staggered key poses; sections reveal one at a time; one accent per view                  |
+| Follow through · Arcs           | Theme icon rotates in and overshoots (`--ease-spring`); the photo's orbit swings on hover               |
+| Slow in & out · Snappy timing   | Motion tokens in `global.css`: 100–300ms durations, no linear UI easing                                 |
+| Secondary action · Exaggeration | Copy-email check pops and a “Copied” bubble appears; invalid submits shake                              |
+| Solid drawing in 3D             | Project cards tilt toward the pointer (`useTilt`, CSS variables only, no re-renders)                    |
+| Fitts's law · Bigger hit areas  | Large primary actions, ⌘K, and invisible hit-area extensions on icon buttons and links                  |
+| Hick's · Miller's law           | Six nav items; skills chunked in groups of ≤6; principles split into two tabs                           |
+| Doherty threshold               | Every control responds on the same frame; the form shows its sending state instantly                    |
+| Postel's law                    | Form fields are trimmed/normalized; ⌘K search ignores case and accents and understands Spanish keywords |
+| Jakob's law                     | Familiar patterns: logo → home, ⌘K search, standard form layout                                         |
+| Frequency of use                | The command menu drops its entrance animation after the first open                                      |
+
+All motion is disabled under `prefers-reduced-motion: reduce`.
+
 ## Scripts
 
 ```bash

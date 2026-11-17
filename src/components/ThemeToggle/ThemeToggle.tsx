@@ -16,7 +16,10 @@ export function ThemeToggle({ theme, onToggle }: ThemeToggleProps) {
       aria-label={`Switch to ${next} theme`}
       title={`Switch to ${next} theme`}
     >
-      {theme === 'dark' ? <FiSun aria-hidden="true" /> : <FiMoon aria-hidden="true" />}
+      {/* Keyed by theme so the swap animation (arc + follow through) replays on every toggle */}
+      <span key={theme} className="swap-in" aria-hidden="true">
+        {theme === 'dark' ? <FiSun /> : <FiMoon />}
+      </span>
     </button>
   );
 }

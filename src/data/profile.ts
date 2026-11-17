@@ -206,6 +206,7 @@ export const sections = [
   { id: 'experience', label: 'Experience' },
   { id: 'skills', label: 'Skills' },
   { id: 'projects', label: 'Projects' },
+  { id: 'principles', label: 'Principles' },
   { id: 'contact', label: 'Contact' },
 ] as const;
 
