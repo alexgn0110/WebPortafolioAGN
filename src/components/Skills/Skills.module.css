@@ -36,3 +36,43 @@
   background: var(--surface);
   font-size: 0.875rem;
 }
+
+/* Pose to pose: skill groups settle in one after another when the section is revealed */
+@keyframes settle {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :global(.js) :global(.is-visible) .group {
+    animation: settle var(--dur-slow) var(--ease-out) both;
+  }
+
+  :global(.js) :global(.is-visible) .group:nth-child(2) {
+    animation-delay: 50ms;
+  }
+  :global(.js) :global(.is-visible) .group:nth-child(3) {
+    animation-delay: 100ms;
+  }
+  :global(.js) :global(.is-visible) .group:nth-child(4) {
+    animation-delay: 150ms;
+  }
+  :global(.js) :global(.is-visible) .group:nth-child(5) {
+    animation-delay: 200ms;
+  }
+  :global(.js) :global(.is-visible) .group:nth-child(6) {
+    animation-delay: 250ms;
+  }
+}
+
+.list li {
+  transition:
+    border-color var(--dur-instant) var(--ease-out),
+    color var(--dur-instant) var(--ease-out);
+}
+
+.group:hover .list li {
+  border-color: var(--border-strong);
+}

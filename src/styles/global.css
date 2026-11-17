@@ -10,7 +10,7 @@
   --header-h: 64px;
 
   /*
-   * Motion system (see the "Motion & UX principles" section on the site).
+   * Motion system, grounded in animation principles and UX laws.
    * Snappy timing: every UI response stays at or under 300ms.
    * Slow in & slow out: nothing moves linearly; entrances decelerate, exits accelerate.
    */

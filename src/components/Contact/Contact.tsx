@@ -63,7 +63,7 @@ export function Contact() {
   };
 
   return (
-    <Section id="contact" index={6} title="Contact">
+    <Section id="contact" index={5} title="Contact">
       <div className={styles.grid}>
         <div className={styles.intro}>
           <p className={styles.lead}>Available for remote and hybrid frontend roles.</p>

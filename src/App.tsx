@@ -11,7 +11,6 @@ import {
   FiMoon,
   FiSun,
   FiUser,
-  FiZap,
 } from 'react-icons/fi';
 import { Header } from './components/Header/Header';
 import { Hero } from './components/Hero/Hero';
@@ -19,7 +18,6 @@ import { About } from './components/About/About';
 import { Experience } from './components/Experience/Experience';
 import { Skills } from './components/Skills/Skills';
 import { Projects } from './components/Projects/Projects';
-import { Principles } from './components/Principles/Principles';
 import { Contact } from './components/Contact/Contact';
 import { Footer } from './components/Footer/Footer';
 import { CommandPalette, type Command } from './components/CommandPalette/CommandPalette';
@@ -33,7 +31,6 @@ const SECTION_ICONS = {
   experience: <FiBriefcase />,
   skills: <FiCode />,
   projects: <FiFolder />,
-  principles: <FiZap />,
   contact: <FiMail />,
 } as const;
 
@@ -43,7 +40,6 @@ const SECTION_KEYWORDS = {
   experience: 'experiencia trabajo jobs career',
   skills: 'habilidades stack tecnologias tech',
   projects: 'proyectos portfolio work',
-  principles: 'principios motion animation ux laws animacion',
   contact: 'contacto email correo hire',
 } as const;
 
@@ -162,7 +158,6 @@ export default function App() {
         <Experience />
         <Skills />
         <Projects />
-        <Principles />
         <Contact />
       </main>
       <Footer shortcutLabel={shortcutLabel} />
