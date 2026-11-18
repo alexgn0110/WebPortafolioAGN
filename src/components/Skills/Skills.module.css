@@ -6,14 +6,33 @@
 
 .group {
   padding: 1.25rem 1.35rem 1.4rem;
-  transition: border-color var(--duration) var(--ease);
+  transition:
+    border-color var(--dur-instant) var(--ease-out),
+    opacity var(--dur-base) var(--ease-out),
+    transform var(--dur-base) var(--ease-spring),
+    box-shadow var(--dur-base) var(--ease-out);
 }
 
+/* Follow through: the hovered group lifts on a spring curve and settles */
 .group:hover {
   border-color: var(--border-strong);
+  transform: translateY(-3px);
+  box-shadow:
+    var(--shadow),
+    0 18px 36px -26px var(--glow);
+}
+
+/* Staging the focus: while one group is hovered, the others step back */
+@media (hover: hover) {
+  .grid:has(.group:hover) .group:not(:hover) {
+    opacity: 0.55;
+  }
 }
 
 .title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   font-family: var(--font-mono);
   font-size: 0.78rem;
   font-weight: 500;
@@ -23,56 +42,115 @@
   margin-bottom: 0.9rem;
 }
 
+/* Secondary action: a small accent rule draws out after the title on hover */
+.title::after {
+  content: '';
+  height: 1px;
+  width: 1.5rem;
+  background: currentColor;
+  opacity: 0.5;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-slow) var(--ease-out);
+}
+
+.group:hover .title::after {
+  transform: scaleX(1);
+}
+
 .list {
   display: flex;
   flex-wrap: wrap;
   gap: 0.45rem;
 }
 
-.list li {
+.chip {
+  display: inline-block;
   padding: 0.3rem 0.7rem;
   border-radius: var(--radius-sm);
   border: 1px solid var(--border);
   background: var(--surface);
   font-size: 0.875rem;
-}
-
-/* Pose to pose: skill groups settle in one after another when the section is revealed */
-@keyframes settle {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  :global(.js) :global(.is-visible) .group {
-    animation: settle var(--dur-slow) var(--ease-out) both;
-  }
-
-  :global(.js) :global(.is-visible) .group:nth-child(2) {
-    animation-delay: 50ms;
-  }
-  :global(.js) :global(.is-visible) .group:nth-child(3) {
-    animation-delay: 100ms;
-  }
-  :global(.js) :global(.is-visible) .group:nth-child(4) {
-    animation-delay: 150ms;
-  }
-  :global(.js) :global(.is-visible) .group:nth-child(5) {
-    animation-delay: 200ms;
-  }
-  :global(.js) :global(.is-visible) .group:nth-child(6) {
-    animation-delay: 250ms;
-  }
-}
-
-.list li {
   transition:
     border-color var(--dur-instant) var(--ease-out),
+    background-color var(--dur-instant) var(--ease-out),
     color var(--dur-instant) var(--ease-out);
 }
 
-.group:hover .list li {
+.group:hover .chip {
   border-color: var(--border-strong);
+}
+
+/* Exaggerated (but small) feedback: the hovered chip takes the accent */
+.group .chip:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--text);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /*
+   * Pose to pose + slow in & slow out: groups settle one after another
+   * when the section is revealed (snappy: 300ms each, 50ms apart).
+   */
+  @keyframes settle {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+  }
+
+  :global(.js) :global(.is-visible) .group {
+    animation: settle var(--dur-slow) var(--ease-out) backwards;
+    animation-delay: calc(var(--g, 0) * 50ms);
+  }
+
+  /*
+   * Moving in arcs + follow through: each chip travels on a short curve
+   * (left-and-below → slightly above → home) and overshoots a hair before settling.
+   */
+  @keyframes chip-in {
+    0% {
+      opacity: 0;
+      transform: translate(-6px, 10px) scale(0.92);
+    }
+    60% {
+      opacity: 1;
+      transform: translate(0, -2px) scale(1.02);
+    }
+    100% {
+      transform: none;
+    }
+  }
+
+  :global(.js) :global(.is-visible) .list li {
+    display: inline-block;
+    animation: chip-in 260ms var(--ease-out) backwards;
+    animation-delay: calc(120ms + var(--g, 0) * 50ms + var(--i, 0) * 30ms);
+  }
+
+  /*
+   * Anticipation + squash & stretch on hover: the chip dips and widens slightly,
+   * then springs up a couple of pixels and rests there.
+   */
+  @keyframes chip-hop {
+    0% {
+      transform: none;
+    }
+    30% {
+      transform: translateY(1px) scale(1.04, 0.94);
+    }
+    70% {
+      transform: translateY(-3px) scale(0.98, 1.03);
+    }
+    100% {
+      transform: translateY(-2px);
+    }
+  }
+
+  @media (hover: hover) {
+    .chip:hover {
+      animation: chip-hop var(--dur-base) var(--ease-out) forwards;
+    }
+  }
 }
