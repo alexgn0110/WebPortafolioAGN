@@ -1,0 +1,110 @@
+/* Gold that reads on both themes */
+.shard,
+.assembled {
+  --gold: #e9b949;
+  --gold-glow: rgb(233 185 73 / 0.55);
+}
+
+/* A faint piece: barely there until the pointer finds it */
+.shard {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 2rem; /* generous hover zone around a tiny glyph */
+  height: 2rem;
+  cursor: default;
+  z-index: 1;
+}
+
+.shard svg {
+  width: 9px;
+  height: 8px;
+  fill: var(--text);
+  opacity: 0.09;
+  transition:
+    opacity var(--dur-slow) var(--ease-out),
+    fill var(--dur-slow) var(--ease-out),
+    transform var(--dur-slow) var(--ease-spring),
+    filter var(--dur-slow) var(--ease-out);
+}
+
+.shard:hover svg {
+  opacity: 0.25;
+}
+
+/* Found: exaggerated (but small) feedback — it pops, turns gold and glows */
+.shard[data-found='true'] svg {
+  fill: var(--gold);
+  opacity: 0.9;
+  filter: drop-shadow(0 0 4px var(--gold-glow));
+  transform: scale(1.25);
+}
+
+.inline {
+  position: relative;
+  display: inline-grid;
+  width: 1.25rem;
+  height: 1.25rem;
+  vertical-align: middle;
+  margin-left: 0.15rem;
+}
+
+/* The assembled set: each piece arrives from its own direction, then a soft glow */
+.assembled {
+  display: inline-grid;
+  place-items: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-left: 0.15rem;
+  vertical-align: middle;
+}
+
+.assembled polygon {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.assembled svg {
+  width: 16px;
+  height: 14px;
+  fill: var(--gold);
+  overflow: visible;
+  filter: drop-shadow(0 0 3px var(--gold-glow));
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .assembled polygon {
+    animation: piece-in 420ms var(--ease-spring) backwards;
+  }
+
+  .top {
+    --from: translate(0, -10px);
+  }
+
+  .left {
+    --from: translate(-10px, 6px);
+    animation-delay: 90ms !important;
+  }
+
+  .right {
+    --from: translate(10px, 6px);
+    animation-delay: 180ms !important;
+  }
+
+  .assembled svg {
+    animation: glow 1.2s var(--ease-in-out) 450ms 2;
+  }
+}
+
+@keyframes piece-in {
+  from {
+    opacity: 0;
+    transform: var(--from) rotate(-25deg);
+  }
+}
+
+@keyframes glow {
+  50% {
+    filter: drop-shadow(0 0 7px var(--gold-glow));
+  }
+}

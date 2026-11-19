@@ -232,3 +232,9 @@
     width: 8.5rem;
   }
 }
+
+/* Hidden piece #1 sits low in the hero grid, under the portrait */
+.shard {
+  right: 7%;
+  bottom: 1.25rem;
+}

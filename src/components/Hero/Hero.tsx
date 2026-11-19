@@ -2,6 +2,7 @@ import { FiArrowRight, FiDownload, FiGithub, FiLinkedin, FiMail, FiMapPin } from
 import { profile } from '../../data/profile';
 import { asset } from '../../lib/asset';
 import { useLocalTime } from '../../hooks/useLocalTime';
+import { Shard } from '../../easter-egg/shards';
 import styles from './Hero.module.css';
 
 export function Hero() {
@@ -10,6 +11,7 @@ export function Hero() {
   return (
     <section className={styles.hero} aria-labelledby="hero-title">
       <div className={styles.backdrop} aria-hidden="true" />
+      <Shard id="hero" className={styles.shard} />
       <div className={`container ${styles.inner}`}>
         <div className={styles.copy}>
           <p className={styles.status}>

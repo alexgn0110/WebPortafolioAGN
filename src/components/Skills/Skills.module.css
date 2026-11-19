@@ -154,3 +154,13 @@
     }
   }
 }
+
+/* Hidden piece #2 rests just past the last skills card */
+.grid {
+  position: relative;
+}
+
+.shard {
+  right: -0.5rem;
+  bottom: -2.5rem;
+}

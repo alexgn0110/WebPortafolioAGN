@@ -25,6 +25,7 @@ import { profile, sections } from './data/profile';
 import { asset } from './lib/asset';
 import { useTheme } from './hooks/useTheme';
 import { useReveal } from './hooks/useReveal';
+import { ShardsProvider } from './easter-egg/shards';
 
 const SECTION_ICONS = {
   about: <FiUser />,
@@ -141,7 +142,7 @@ export default function App() {
   const shortcutLabel = isMac ? '⌘K' : 'Ctrl K';
 
   return (
-    <>
+    <ShardsProvider>
       <a href="#main" className="skip-link">
         Skip to content
       </a>
@@ -167,6 +168,6 @@ export default function App() {
         commands={commands}
         familiar={paletteFamiliar}
       />
-    </>
+    </ShardsProvider>
   );
 }

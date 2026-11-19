@@ -1,5 +1,6 @@
 import { FiGithub, FiLinkedin } from 'react-icons/fi';
 import { profile } from '../../data/profile';
+import { FooterShard } from '../../easter-egg/shards';
 import styles from './Footer.module.css';
 
 interface FooterProps {
@@ -16,6 +17,7 @@ export function Footer({ shortcutLabel }: FooterProps) {
             view source
           </a>
           .
+          <FooterShard />
         </p>
         <p className={styles.hint}>
           Press <kbd>{shortcutLabel}</kbd> to navigate

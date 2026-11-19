@@ -1,6 +1,7 @@
 import type { CSSProperties } from 'react';
 import { skills } from '../../data/profile';
 import { Section } from '../Section/Section';
+import { Shard } from '../../easter-egg/shards';
 import styles from './Skills.module.css';
 
 /** Index variables drive the staggered entrance in CSS (no JS animation). */
@@ -27,6 +28,7 @@ export function Skills() {
             </ul>
           </section>
         ))}
+        <Shard id="skills" className={styles.shard} />
       </div>
     </Section>
   );
