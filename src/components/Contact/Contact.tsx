@@ -1,5 +1,5 @@
 import { useRef, useState, type FocusEvent, type FormEvent } from 'react';
-import { FiCheck, FiCopy, FiLinkedin, FiMessageCircle, FiSend } from 'react-icons/fi';
+import { FiCheck, FiCopy, FiLinkedin, FiSend } from 'react-icons/fi';
 import { profile } from '../../data/profile';
 import { EMAILJS } from '../../lib/emailjs';
 import { cleanField } from '../../lib/clean';
@@ -102,11 +102,6 @@ export function Contact() {
             <li>
               <a href={profile.links.linkedin} target="_blank" rel="noreferrer">
                 <FiLinkedin aria-hidden="true" /> LinkedIn
-              </a>
-            </li>
-            <li>
-              <a href={profile.links.whatsapp} target="_blank" rel="noreferrer">
-                <FiMessageCircle aria-hidden="true" /> WhatsApp
               </a>
             </li>
           </ul>

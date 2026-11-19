@@ -1,12 +1,8 @@
 /* Gold that reads on both themes */
-.shard,
-.assembled {
+.shard {
   --gold: #e9b949;
   --gold-glow: rgb(233 185 73 / 0.55);
-}
 
-/* A faint piece: barely there until the pointer finds it */
-.shard {
   position: absolute;
   display: grid;
   place-items: center;
@@ -16,7 +12,8 @@
   z-index: 1;
 }
 
-.shard svg {
+/* A faint piece: barely there until the pointer finds it */
+.shard > svg:not(.set) {
   width: 9px;
   height: 8px;
   fill: var(--text);
@@ -28,12 +25,12 @@
     filter var(--dur-slow) var(--ease-out);
 }
 
-.shard:hover svg {
+.shard:hover > svg:not(.set) {
   opacity: 0.25;
 }
 
 /* Found: exaggerated (but small) feedback — it pops, turns gold and glows */
-.shard[data-found='true'] svg {
+.shard[data-found='true'] > svg:not(.set) {
   fill: var(--gold);
   opacity: 0.9;
   filter: drop-shadow(0 0 4px var(--gold-glow));
@@ -49,22 +46,8 @@
   margin-left: 0.15rem;
 }
 
-/* The assembled set: each piece arrives from its own direction, then a soft glow */
-.assembled {
-  display: inline-grid;
-  place-items: center;
-  width: 1.25rem;
-  height: 1.25rem;
-  margin-left: 0.15rem;
-  vertical-align: middle;
-}
-
-.assembled polygon {
-  transform-box: fill-box;
-  transform-origin: center;
-}
-
-.assembled svg {
+/* The assembled set, shown in all three places once every piece is found */
+.set {
   width: 16px;
   height: 14px;
   fill: var(--gold);
@@ -72,8 +55,13 @@
   filter: drop-shadow(0 0 3px var(--gold-glow));
 }
 
+.set polygon {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
 @media (prefers-reduced-motion: no-preference) {
-  .assembled polygon {
+  .set polygon {
     animation: piece-in 420ms var(--ease-spring) backwards;
   }
 
@@ -91,7 +79,7 @@
     animation-delay: 180ms !important;
   }
 
-  .assembled svg {
+  .set {
     animation: glow 1.2s var(--ease-in-out) 450ms 2;
   }
 }

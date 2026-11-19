@@ -6,7 +6,6 @@
 export interface SocialLinks {
   github: string;
   linkedin: string;
-  whatsapp: string;
 }
 
 export interface Profile {
@@ -71,7 +70,6 @@ export const profile: Profile = {
   links: {
     github: 'https://github.com/alexgn0110',
     linkedin: 'https://www.linkedin.com/in/alexgtznovo/',
-    whatsapp: 'https://api.whatsapp.com/send?phone=528120022542',
   },
 };
 

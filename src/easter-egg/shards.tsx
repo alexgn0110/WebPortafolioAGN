@@ -56,34 +56,36 @@ const Triangle = () => (
   </svg>
 );
 
-/** One hidden piece. Lights up (and stays lit) the first time the pointer passes over it. */
+/** The three pieces assembled: each one flies in from its own side, then a soft glow. */
+const AssembledSet = () => (
+  <svg className={styles.set} viewBox="0 0 20 18" data-triforce="complete" focusable="false">
+    <polygon className={styles.top} points="10,0 15,9 5,9" />
+    <polygon className={styles.left} points="5,9 10,18 0,18" />
+    <polygon className={styles.right} points="15,9 20,18 10,18" />
+  </svg>
+);
+
+/**
+ * One hidden piece. Lights up (and stays lit) the first time the pointer passes over it.
+ * Once all three are found, every piece transforms into the assembled set in place.
+ */
 export function Shard({ id, className = '' }: { id: ShardId; className?: string | undefined }) {
-  const { found, find } = useShards();
-  const isFound = found.has(id);
+  const { found, find, complete } = useShards();
   return (
     <span
       className={`${styles.shard} ${className}`}
       data-shard={id}
-      data-found={isFound}
+      data-found={found.has(id)}
+      data-complete={complete}
       aria-hidden="true"
       onPointerEnter={() => find(id)}
     >
-      <Triangle />
+      {complete ? <AssembledSet /> : <Triangle />}
     </span>
   );
 }
 
-/** Footer slot: shows the footer piece until all three are found, then the assembled set. */
+/** Footer slot: the piece sits inline, right after the copyright line. */
 export function FooterShard() {
-  const { complete } = useShards();
-  if (!complete) return <Shard id="footer" className={styles.inline} />;
-  return (
-    <span className={styles.assembled} data-triforce="complete" aria-hidden="true">
-      <svg viewBox="0 0 20 18" focusable="false">
-        <polygon className={styles.top} points="10,0 15,9 5,9" />
-        <polygon className={styles.left} points="5,9 10,18 0,18" />
-        <polygon className={styles.right} points="15,9 20,18 10,18" />
-      </svg>
-    </span>
-  );
+  return <Shard id="footer" className={styles.inline} />;
 }

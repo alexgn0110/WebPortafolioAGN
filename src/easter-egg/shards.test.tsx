@@ -9,7 +9,7 @@ const shard = (container: HTMLElement, id: string) => {
 };
 
 describe('hidden three-piece easter egg', () => {
-  it('lights each piece when the pointer finds it, then assembles the set in the footer', async () => {
+  it('lights each piece when the pointer finds it, then assembles the set in all three places', async () => {
     const user = userEvent.setup();
     const info = vi.spyOn(console, 'info').mockImplementation(() => {});
     const { container } = render(<App />);
@@ -23,8 +23,7 @@ describe('hidden three-piece easter egg', () => {
     await user.hover(shard(container, 'skills'));
     await user.hover(shard(container, 'footer'));
 
-    expect(container.querySelector('[data-triforce="complete"]')).not.toBeNull();
-    expect(container.querySelector('[data-shard="footer"]')).toBeNull();
+    expect(container.querySelectorAll('[data-triforce="complete"]')).toHaveLength(3);
     expect(info).toHaveBeenCalledWith(
       expect.stringContaining('All three pieces found'),
       expect.any(String),
